@@ -1,4 +1,8 @@
 node_modules/
+task/
+src/
+assets/
+.expo-shared/
 .expo/
 dist/
 npm-debug.*
