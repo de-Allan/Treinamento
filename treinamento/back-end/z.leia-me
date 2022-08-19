@@ -1,0 +1,17 @@
+para começar um projeto do node.js digite:
+
+npm init -y
+
+e instale o express que é uma bibliteca vai centralizar nossos comandos:
+
+npm i --save express
+
+e vou instalar a biblioteca nodemon ela é usada apenas na contrução
+da aplicação, e nao vai para o projeto final entao instalo ela com 
+--save-dev
+
+npm i --save-dev nodemon
+
+
+olhando no arquivo package.json vemos tudo que instalamos
+e no arquivo index.js que vai ser rodado o nosso projeto.

@@ -1,60 +1,42 @@
-import { useState } from "react"
-import { Alert, SafeAreaView, StyleSheet, Text, TouchableOpacity, ActivityIndicator } from "react-native"
+import { View, Text, StyleSheet, safeAreaView, FlatList } from 'react-native'
+import nome from './src/nome.js'
 
-const App = () => {
-
-const [k, setk] = useState(false)
-
-function chave () {
-
-    setk(!k)
-
-}
+export default function App() {
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container} >
 
-            <TouchableOpacity
-                style={styles.Button}
-                onPress={chave}
-            >
-                <Text style={styles.pesquisa}>Clique aqui</Text>
+            <FlatList
+                data={nome}
+                keyExtractor={nome.id}
+                renderItem={({ item: nome }) => {
+                    return (
+                        <Text key={nome.id} >
+                            Pessoa {nome.id} tem nome {nome.nome} com idade de {nome.idade}
+                        </Text>
+                    )
+                }}
+            />
 
-            </TouchableOpacity>
+            {nome.map(nome => {
+                return (
 
-            {
-                k === true ?
-                <Text style={{color:'green'}}>O botao esta true </Text>
-                : 
-                <Text style={{color: 'red'}}>O botao esta false</Text>
-            }
+                    <Text key={nome.id} >
+                        Pessoa {nome.id} tem nome {nome.nome} com idade de {nome.idade}
+                    </Text>
 
-        </SafeAreaView>
+                )
+            })}
+            
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
+
     container: {
         flex: 1,
-        marginHorizontal: 50,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#FFF'
-    },
-    pesquisa: {
-        color: 'white'
-    },
-
-    Button: {
-        marginTop: 30,
-        width: 100,
-        backgroundColor: 'blue',
-        borderRadius: 4,
-        height: 35,
-        justifyContent: 'center',
-        alignItems: 'center'
+        justifyContent: 'center'
     }
 
 })
-
-export default App
